@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800" role="img" aria-labelledby="title desc">
+  <title id="title">从方案 A 改到方案 B：两种任务接续路径</title>
+  <desc id="desc">场景示例：用户已经采纳方案 B，旧交接仍写着方案 A。仅沿用旧摘要会让任务回到 A；核对当前源文件、明确本轮范围并回写结果，可以让下一位从 B 继续。</desc>
+  <defs>
+    <marker id="downOld" markerWidth="9" markerHeight="9" refX="5" refY="5" orient="auto"><path d="m1 1 4 4-4 4" stroke="#bc8e81" stroke-width="1.5" fill="none"/></marker>
+    <marker id="downNew" markerWidth="9" markerHeight="9" refX="5" refY="5" orient="auto"><path d="m1 1 4 4-4 4" stroke="#548d7c" stroke-width="1.5" fill="none"/></marker>
+  </defs>
+  <rect width="1440" height="800" rx="24" fill="#f5f5ef"/>
+  <g font-family="'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif">
+    <text x="64" y="69" fill="#597466" font-size="21" letter-spacing="3" font-weight="600">CONTEXT IN ACTION</text>
+    <text x="64" y="132" fill="#223a34" font-size="44" font-weight="700">决定已经变了，接续也要跟得上。</text>
+    <rect x="64" y="166" width="1312" height="65" rx="12" fill="#e8ece2"/>
+    <circle cx="96" cy="199" r="6" fill="#687e5a"/>
+    <text x="118" y="208" fill="#455c45" font-size="26">场景：用户已采纳方案 B，当前正文已更新，旧交接仍写着“继续 A”。</text>
+
+    <rect x="64" y="267" width="630" height="450" rx="18" fill="#fffdfb" stroke="#e1d7d0"/>
+    <rect x="746" y="267" width="630" height="450" rx="18" fill="#ffffff" stroke="#bad4c7"/>
+    <rect x="64" y="267" width="630" height="7" rx="3" fill="#c49380"/>
+    <rect x="746" y="267" width="630" height="7" rx="3" fill="#57937f"/>
+
+    <text x="100" y="328" fill="#806255" font-size="29" font-weight="600">沿用旧摘要</text>
+    <text x="782" y="328" fill="#2b6650" font-size="29" font-weight="600">核对当前源</text>
+
+    <g font-size="25">
+      <rect x="100" y="359" width="558" height="64" rx="10" fill="#f4efea"/>
+      <text x="125" y="400" fill="#65584f">读到旧交接：“继续方案 A”</text>
+      <path d="M379 433v29" stroke="#bc8e81" stroke-width="2" marker-end="url(#downOld)"/>
+      <rect x="100" y="474" width="558" height="64" rx="10" fill="#f4efea"/>
+      <text x="125" y="515" fill="#65584f">按旧范围修改，覆盖当前决定</text>
+      <path d="M379 548v29" stroke="#bc8e81" stroke-width="2" marker-end="url(#downOld)"/>
+      <rect x="100" y="589" width="558" height="83" rx="10" fill="#f8eae3"/>
+      <text x="125" y="624" fill="#965b44" font-weight="600">工作退回 A</text>
+      <text x="125" y="655" fill="#9c7868" font-size="22">用户需要重新解释已经确认的决定</text>
+
+      <rect x="782" y="359" width="558" height="64" rx="10" fill="#edf4ee"/>
+      <text x="807" y="400" fill="#3a5f4c">定位当前正文，核对已采纳的 B</text>
+      <path d="M1061 433v29" stroke="#548d7c" stroke-width="2" marker-end="url(#downNew)"/>
+      <rect x="782" y="474" width="558" height="64" rx="10" fill="#edf4ee"/>
+      <text x="807" y="515" fill="#3a5f4c">确认本轮范围，保留已有新增内容</text>
+      <path d="M1061 548v29" stroke="#548d7c" stroke-width="2" marker-end="url(#downNew)"/>
+      <rect x="782" y="589" width="558" height="83" rx="10" fill="#deeee4"/>
+      <text x="807" y="624" fill="#2b6650" font-weight="600">从 B 继续，成果写回维护源</text>
+      <text x="807" y="655" fill="#658672" font-size="22">下一位知道改了什么、还剩什么</text>
+    </g>
+    <path d="m373 455 6 7 6-7m-12 115 6 7 6-7" stroke="#bc8e81" stroke-width="2" fill="none"/>
+    <path d="m1055 455 6 7 6-7m-12 115 6 7 6-7" stroke="#548d7c" stroke-width="2" fill="none"/>
+    <text x="720" y="763" text-anchor="middle" fill="#849087" font-size="22">任务接续示例 · 依据当前文件与明确决定工作</text>
+  </g>
+</svg>

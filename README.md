@@ -1,101 +1,120 @@
 # Context Continuity · 上下文协作治理
 
-**换一个 Agent，仍能接着当前决定与源文件继续工作。**
+**换个 Agent，工作接得上。**
 
-一个可安装、可迭代的通用 Skill，用于建立和修复跨 Agent、跨会话、跨工具的项目协作规范。适合代码仓库、产品文档和其他持续维护的工作区。
+让不同会话、不同工具中的 AI 助手，依据同一项目的当前决定与源文件继续工作。少一次重复解释，多一步有效推进。
 
-它帮助 Agent 找到当前信源、核对旧摘要、明确修改责任，把新决定与成果写回维护源。项目已有规范会被沿用，缺少的部分才补上。
+**[开始使用](#开始使用) · [下载发布包](https://github.com/JasperLin2333/context-continuity/releases/latest) · [阅读 Skill](SKILL.md) · [参与迭代](CONTRIBUTING.md)**
 
-**[使用 Skill](SKILL.md) · [下载发布包](https://github.com/JasperLin2333/context-continuity/releases/latest) · [迭代规范](CONTRIBUTING.md) · [反馈问题](https://github.com/JasperLin2333/context-continuity/issues)**
+[![Context Continuity：不同会话和工具通过读取与回写当前维护源接续任务](assets/hero.png)](assets/hero.svg)
 
-## 可以这样用
+## 让你已经想清楚的事，成为下一次工作的起点
 
-| 你的情况 | 发给 Agent 的请求 |
+你和一个 Agent 讨论了很久，终于确定了方案。换个会话、切个工具，新的 Agent 却又从旧版本开始；几个人同时改文件，最后留下的还可能是一份过时摘要。
+
+Context Continuity 把协作中容易丢失的环节落实到项目里：**什么是当前信源，接手时读什么，谁改哪些内容，成果写回哪里。**
+
+它可以用在代码仓库、产品方案、研究文档和持续维护的工作区。沿用你已经在用的规则与目录，把缺口补到真正会被读取的位置。
+
+## 看一次接续，就知道它在解决什么
+
+[![任务接续示例：旧摘要停留在方案 A 时，核对当前源文件让工作从已采纳的方案 B 继续](assets/handoff-example.png)](assets/handoff-example.svg)
+
+接续的关键，是打开当前正文、核对最新决定，并把这轮成果写回维护源。交接消息负责告诉下一位从哪里继续，项目文件承载实际成果。
+
+## 四项能力，把上下文变成可执行的协作
+
+| 能力 | 实际帮你做什么 |
 | --- | --- |
-| 新项目准备使用多个 AI 工具 | 使用上下文协作治理，为这个项目建立最小协作规范，沿用已有目录和文件 |
-| 换会话就忘记之前的决定 | 使用上下文协作治理，找出接续时缺了哪些必要读取与交接信息 |
-| 明明写了规则，还是反复做错 | 使用上下文协作治理，用这次失败检查是理解、读取、信源还是执行出了问题 |
-| 当前机制已用了一段时间 | 使用上下文协作治理，根据这次反馈修订已有机制，清除重复与冲突条款 |
+| **找到当前有效的依据** | 区分规则、导航、当前正文和历史证据；按明确决定识别适用范围，避免凭日期或旧摘要选版本 |
+| **把任务交接清楚** | 带上目标、授权、源文件、进度和验证边界；明确各自修改范围与最终回写责任 |
+| **保留已经完成的工作** | 修改前核对文件变化，保留用户新增内容；新决定更新维护源，相关入口同步调整 |
+| **让重复问题得到针对性修复** | 分清理解、读取、信源、执行和能力缺口，修对应环节，清除冲突与重复规则 |
 
-例如：旧交接写着“继续方案 A”，而用户已决定转向 B，当前正文也已更新。接手的 Agent 应读取并核对 B 的源文件，保留仍有效的约束，再继续任务。它不应依据旧摘要恢复 A，也不应为这个问题再创建一份长期状态文件。
+**按任务大小取上下文，按问题所在改机制。** 一行文案仍然是一行文案的工作量；已有规范足够时直接沿用。一次项目特例留在项目，能复用的方法才进入 Skill。
 
-## 安装与开始
+## 从一个项目开始，也能持续迭代
 
-把这段话发给支持 Skill 安装的 AI 助手：
+| 什么时候用 | 直接对 Agent 说 |
+| --- | --- |
+| **建立** · 新项目要接入多个 AI 工具 | “为这个项目建立最小协作规范，沿用已有文件和目录。” |
+| **接续** · 换会话、换工具继续做 | “核对当前源文件、已采纳决定和剩余工作，接着完成这次任务。” |
+| **诊断** · 同一个问题反复纠正 | “用这次失败查清问题出在理解、读取还是执行，修复实际缺口。” |
+| **迭代** · 已有机制需要改善 | “根据这次反馈修订原有规则，保留有效约束，清除重复与冲突。” |
 
-```text
-请安装 https://github.com/JasperLin2333/context-continuity 中的 Skill。
-按当前宿主支持的方式安装完整 Skill 及 references，不修改我的项目规则或全局配置。
-然后使用上下文协作治理，先检查当前项目的信源、任务接续和成果回写机制。
-```
+Skill 负责建立和改进协作机制；日常任务继续通过项目规则与源文件执行。每次真实使用，都可以成为下一次改进的依据。
 
-也可使用 [Vercel skills CLI](https://github.com/vercel-labs/skills)，按提示选择宿主：
+## 一份方法，面向多种 Agent 平台
+
+通用指令遵循 [Agent Skills 标准](https://agentskills.io/specification)，平台差异在打包时处理。**核心正文只维护一份。**
+
+| 接入方式 | 对应发布包 |
+| --- | --- |
+| Codex、Claude Code、Cursor、GitHub Copilot 等宿主的 Skill 安装方式 | [标准 Skill 包](https://github.com/JasperLin2333/context-continuity/releases/latest/download/context-continuity.zip) |
+| WorkBuddy 开放平台 | [WorkBuddy 包](https://github.com/JasperLin2333/context-continuity/releases/latest/download/context-continuity-workbuddy.zip) |
+| 腾讯 SkillHub | [SkillHub 包](https://github.com/JasperLin2333/context-continuity/releases/latest/download/context-continuity-skillhub.zip) |
+| Claude 插件与本地 marketplace | [Claude 插件包](https://github.com/JasperLin2333/context-continuity/releases/latest/download/context-continuity-claude.zip) |
+| OpenAI Agent Plugins | [OpenAI 插件包](https://github.com/JasperLin2333/context-continuity/releases/latest/download/context-continuity-openai.zip) |
+
+各宿主的安装位置、插件接入方式和能力要求见[平台接入指南](references/platforms.md)。多端协作需要能够访问项目维护源，或使用项目已有的版本同步方式。
+
+## 开始使用
+
+在项目目录中运行，按提示选择你使用的 AI 助手：
 
 ```sh
 npx skills add JasperLin2333/context-continuity --skill context-continuity
 ```
 
-Skill 执行本身不需要脚本、API Key 或额外运行依赖。它使用当前 AI 助手已有的文件或平台访问能力；修改仍遵守用户和宿主授权。
+也可以直接把这段话发给支持 Skill 安装的 AI 助手：
 
-安装后对 Agent 说：
+```text
+请安装 https://github.com/JasperLin2333/context-continuity 中的 Skill。
+按当前宿主支持的方式安装完整 Skill 及 references。
+安装后，先检查这个项目的信源、任务接续和成果回写机制，告诉我最值得优化的地方。
+```
 
-> 使用 context-continuity，检查这个项目为什么换会话后总会用到旧决定。在已授权的项目范围内优化，保留用户改动，说明实际验证结果。
+然后，从一个具体问题开始：
 
-普通业务修改不需要每次运行治理。Skill 建立或修复机制，日常任务通过项目规则与实际源文件继续工作。只要求分析时保持只读。
+> 使用 context-continuity，检查这个项目为什么换会话后总会用到旧决定。在已授权范围内优化，保留用户改动，说明实际结果。
 
-## 跨平台分发
+**无需新增模型 API Key，执行 Skill 无额外运行依赖，使用你现有的 AI 助手。** 只读分析和文件修改按你的本次要求进行。
 
-维护同一份 Skill 正文，打包时生成不同的元数据与插件外壳。
+## 为长期使用准备的工程底座
 
-| 发布包 | 用途 |
+| 已有基础 | 可以直接查看的内容 |
 | --- | --- |
-| `context-continuity.zip` | Agent Skills 标准目录包；供 Codex、Claude Code、Cursor、Copilot 等按各自规则安装 |
-| `context-continuity-workbuddy.zip` | WorkBuddy 开放平台的字段适配包 |
-| `context-continuity-skillhub.zip` | 腾讯 SkillHub 的字段适配包 |
-| `context-continuity-claude.zip` | 含 Skill 和本地 marketplace 的 Claude 插件包 |
-| `context-continuity-openai.zip` | 使用 Agent Plugins 根 manifest 的 OpenAI 插件包 |
+| **16 项自动化分发测试** | 正文一致性、资源隔离、旧安装保护、独立解压与确定性打包：[测试代码](tests/test_distribution.py) |
+| **14 个行为检查场景** | 旧摘要、并发修改、多版本、读取失败与任务恢复等：[场景与预期行为](tests/behavior-cases.md) |
+| **5 种发布包** | 同一维护源生成，版本统一注入，随包提供 SHA256 清单：[当前发布](https://github.com/JasperLin2333/context-continuity/releases/latest) |
+| **可持续演进的维护结构** | 项目特例、通用方法与平台适配分别归位；版本、检查和发布有明确约定：[迭代规范](CONTRIBUTING.md) |
 
-安装目录、官方规范与能力边界见[平台接入](references/platforms.md)。GitHub Release 提供以上 ZIP 和 SHA256 清单；市场包准备完成与各市场审核上架分别确认。
+维护者可以使用 Python 3.10+ 标准库完成检查、构建与安装；仓库提供可选的 [GitHub Actions 模板](templates/github-actions.yml)。欢迎用真实问题来改进它。
 
-本 Skill 不自动同步聊天或项目文件。多端需要访问同一维护源或按项目约定同步版本；无法访问的会话、目录或远端不会凭安装 Skill 自动出现。当前发布已验证包结构与引用，跨客户端实际调用仍需在对应宿主验证。
+<details>
+<summary><strong>手动安装与插件接入</strong></summary>
 
-Claude 插件包解压后，可以在 Claude Code 中按官方本地市场流程安装：
+将仓库克隆到本地后，安装到宿主支持的新目录；目标已存在时会保留原安装并停止：
+
+```sh
+python3 scripts/distribute.py install --destination "/你的宿主/skills/context-continuity"
+```
+
+维护者可加 `--link` 指向同一仓库，前提是宿主支持目录符号链接。
+
+Claude 插件包解压后，在 Claude Code 中添加本地 marketplace 并安装：
 
 ```text
 /plugin marketplace add /解压目录/context-continuity
 /plugin install context-continuity@context-continuity-marketplace
 ```
 
-OpenAI 插件包解压后，按[官方插件文档](https://developers.openai.com/plugins/build/plugins)从本地目录测试或准备提交。这里只分发包，不自动注册市场、改宿主配置或申请官方目录上架。
+OpenAI 插件包按[官方插件文档](https://developers.openai.com/plugins/build/plugins)接入。
 
-## 持续维护
+</details>
 
-仓库是 Skill 的维护源；项目业务事实继续保存在各自项目。版本号只维护在 `distribution.json`，平台字段和版本在打包时注入，避免多份正文分别演进。
+---
 
-维护者使用 Python 3.10+，无需第三方库：
+**把你的真实问题带过来。** 在 [Issues](https://github.com/JasperLin2333/context-continuity/issues) 描述一次上下文丢失、交接失败或规则冲突；请移除个人信息和业务敏感内容。
 
-```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/distribute.py check
-python3 scripts/distribute.py pack --target all
-```
-
-只构建一个通道：
-
-```sh
-python3 scripts/distribute.py pack --target workbuddy
-```
-
-输出位于 `dist/<通道>/`。包采用明确文件清单，排除维护脚本、测试、真实项目和 Git 数据；同一环境对相同输入重复构建得到相同 ZIP。`dist/SHA256SUMS` 记录本次构建的包。下载 Release 后，把 ZIP 与清单放在同一目录，可用 `sha256sum -c SHA256SUMS` 核对。
-
-手动安装到指定的新目录，已有安装会停止并保留：
-
-```sh
-python3 scripts/distribute.py install --destination "/你的宿主/skills/context-continuity"
-```
-
-开发者可加 `--link` 指向维护仓库，避免本机维护两份正文；需先核对宿主是否支持目录符号链接。安装成功只证明文件已放置，实际发现、读取和执行分别核对。
-
-后续修改先分清是项目特例、宿主差异还是通用机制，再更新对应层。验证格式之外，还要检查[行为场景](tests/behavior-cases.md)。仓库提供[GitHub Actions 模板](templates/github-actions.yml)，具有工作流写入权限后可启用标签发布；当前也可按[迭代规范](CONTRIBUTING.md)手动验证和发布。发布说明写清具体变化与实际取得的行为证据。
-
-方法来自实际项目协作的抽象，并参考了 [Orbital](https://github.com/zqiren/Orbital) 的上下文接续与回写思路。本仓库独立编写，采用 [MIT](LICENSE) 许可证。
+方法来自实际项目协作的抽象，参考了 [Orbital](https://github.com/zqiren/Orbital) 的上下文接续与回写思路。采用 [MIT](LICENSE) 许可证，欢迎使用与改进。

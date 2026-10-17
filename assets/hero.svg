@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720" role="img" aria-labelledby="title desc">
+  <title id="title">Context Continuity：换个 Agent，工作接得上</title>
+  <desc id="desc">不同会话与工具中的 Agent 按需读取同一项目的规则、当前正文与已采纳决定，并将修改回写到维护源，形成有依据的任务接续。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172737"/><stop offset="1" stop-color="#0b141f"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#223b49"/><stop offset="1" stop-color="#172b37"/></linearGradient>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#456472" opacity=".25"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto-start-reverse"><path d="m2 1 4 4-4 4" stroke="#80d5c7" stroke-width="1.5" fill="none"/></marker>
+  </defs>
+  <rect width="1440" height="720" rx="24" fill="url(#bg)"/>
+  <rect x="696" y="30" width="714" height="660" fill="url(#dots)"/>
+  <g font-family="'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif">
+    <g transform="translate(72 62)" fill="none" stroke="#80d5c7" stroke-width="3.5">
+      <rect x="0" y="0" width="25" height="30" rx="8"/><rect x="15" y="12" width="25" height="30" rx="8"/>
+    </g>
+    <text x="132" y="91" fill="#dcebe9" font-size="24" font-weight="600" letter-spacing="2">CONTEXT CONTINUITY</text>
+    <text x="72" y="226" fill="#f5f4ee" font-size="74" font-weight="700">换个 Agent，</text>
+    <text x="72" y="322" fill="#80d5c7" font-size="74" font-weight="700">工作接得上。</text>
+    <text x="76" y="393" fill="#b3c3ca" font-size="27">让下一次工作，从当前决定继续。</text>
+    <path d="M76 444h56" stroke="#f2aa7d" stroke-width="4" stroke-linecap="round"/>
+    <text x="76" y="500" fill="#e1e8e8" font-size="27">规则有入口 · 决定有去处 · 交接有依据</text>
+    <rect x="72" y="581" width="490" height="58" rx="29" fill="#ffffff" fill-opacity=".045" stroke="#38505e"/>
+    <text x="317" y="618" text-anchor="middle" fill="#a9c4c9" font-size="24">跨会话　 /　 跨 Agent　 /　 跨工具</text>
+
+    <g fill="#1d303e" stroke="#3b5563">
+      <rect x="748" y="147" width="174" height="88" rx="16"/>
+      <rect x="956" y="147" width="174" height="88" rx="16"/>
+      <rect x="1164" y="147" width="174" height="88" rx="16"/>
+    </g>
+    <g fill="#e4eeed" font-size="27" text-anchor="middle" font-weight="600">
+      <text x="835" y="201">会话 A</text><text x="1043" y="201">会话 B</text><text x="1251" y="201">工具 C</text>
+    </g>
+    <g stroke="#80d5c7" stroke-width="2" fill="none" opacity=".75">
+      <path d="M835 247v36h176"/><path d="M1251 247v36h-176"/>
+      <path d="M1043 246v78" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    </g>
+    <rect x="876" y="265" width="334" height="34" rx="17" fill="#14232e"/>
+    <text x="1043" y="289" fill="#80d5c7" font-size="22" text-anchor="middle">按需读取　·　修改回写</text>
+    <path d="m1037 254 6-7 6 7m-12 62 6 7 6-7" stroke="#80d5c7" stroke-width="2" fill="none"/>
+
+    <rect x="748" y="343" width="590" height="231" rx="20" fill="url(#card)" stroke="#52796f"/>
+    <rect x="748" y="343" width="6" height="231" rx="3" fill="#80d5c7"/>
+    <text x="783" y="391" fill="#f4f4eb" font-size="29" font-weight="600">项目里的当前维护源</text>
+    <path d="M783 415h519" stroke="#3a535e"/>
+    <g font-size="25">
+      <text x="786" y="458" fill="#a3b8be">项目规则</text><text x="1022" y="458" fill="#deebe7">约束与协作方式</text>
+      <text x="786" y="499" fill="#a3b8be">当前正文</text><text x="1022" y="499" fill="#deebe7">正在维护的成果</text>
+      <text x="786" y="540" fill="#a3b8be">已采纳决定</text><text x="1022" y="540" fill="#deebe7">目标、范围与取舍</text>
+    </g>
+    <text x="1043" y="626" text-anchor="middle" fill="#a0b5ba" font-size="24">读对上下文　→　接着做　→　写回源文件</text>
+    <text x="1368" y="680" text-anchor="end" fill="#687f8d" font-size="18" letter-spacing="2">A PORTABLE AGENT SKILL</text>
+  </g>
+</svg>
