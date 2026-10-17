@@ -52,7 +52,7 @@ gh release create vX.Y.Z --verify-tag --title "上下文协作治理 vX.Y.Z" \
 
 ## 可选的自动发布
 
-仓库中的 `templates/github-actions.yml` 提供验证与标签发布工作流。当前 GitHub 登录的 OAuth 权限不包含 `workflow`，因此首版保留模板并手动发布，不声称 CI 已启用。
+仓库中的 `templates/github-actions.yml` 提供验证与标签发布工作流，默认作为可选模板维护。拥有仓库内容写入权限不等于拥有工作流写入权限；不能启用时按上面的方式手动发布。
 
 需要启用时，在具备工作流写入权限的环境中，将模板移动到 `.github/workflows/verify-and-release.yml`，审阅并推送。之后普通推送和 PR 执行验证；匹配版本的标签在验证成功后构建并创建 Release。发布 job 仅申请仓库内容写权限，不使用个人令牌。首次启用后仍需观察实际运行结果。
 
