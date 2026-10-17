@@ -2,6 +2,8 @@
 
 每次修改都应解决一个明确问题，并保护已有有效行为。不以规则数量或文件数量作为成熟度指标。
 
+README 面向使用 Skill 的人，介绍价值、场景、实际效果与安装使用。渠道适配、包型、发布字段、构建和上架流程放在本文件与对应适配资料中，不作为用户功能宣传。
+
 ## 选择修改位置
 
 | 变化 | 维护位置 |
@@ -28,6 +30,39 @@ python3 scripts/distribute.py pack --target all
 有实际执行条件时，用去敏的最小项目验证修改；不要为测试使用生产材料、真实凭据或未经授权的外部写入。独立评估按当前工具与授权条件选择，不默认启动子 Agent。
 
 ## 版本与发布
+
+### 分发与宿主适配
+
+核心正文维护一份，平台差异由构建器注入。以下为维护者准备不同发布渠道的产物，不要求最终用户选择市场包：
+
+| 通道 | 产物 | 维护用途 |
+| --- | --- | --- |
+| generic | `context-continuity.zip` | 通用 Skill；README 只提供这一份直接下载 |
+| workbuddy | `context-continuity-workbuddy.zip` | WorkBuddy 开放平台字段适配 |
+| skillhub | `context-continuity-skillhub.zip` | 腾讯 SkillHub 字段适配 |
+| claude | `context-continuity-claude.zip` | Claude 插件与本地 marketplace 接入 |
+| openai | `context-continuity-openai.zip` | OpenAI Agent Plugins 接入 |
+
+各通道的安装位置、字段依据与能力边界见[平台适配资料](references/platforms.md)。构建成功、宿主实际调用和市场审核分别验证。
+
+源码安装到指定新目录：
+
+```sh
+python3 scripts/distribute.py install --destination "/你的宿主/skills/context-continuity"
+```
+
+本机开发可加 `--link` 指向维护仓库，前提是宿主支持目录符号链接。已有安装会保留并停止，更新前先比较差异。
+
+Claude 插件包解压后，可通过本地 marketplace 验证：
+
+```text
+/plugin marketplace add /解压目录/context-continuity
+/plugin install context-continuity@context-continuity-marketplace
+```
+
+OpenAI 插件包按[官方插件文档](https://developers.openai.com/plugins/build/plugins)接入。GitHub Release 保存各渠道产物及 SHA256 清单，平台提交按维护者的实际发布任务执行。
+
+### 发布步骤
 
 采用 SemVer：修复不改变使用方式时递增补丁号；新增兼容能力时递增次版本；破坏已有用法时递增主版本。早期 `0.x` 版本仍在发布说明中明确变化与迁移影响。
 
