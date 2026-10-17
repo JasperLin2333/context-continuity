@@ -1,0 +1,4 @@
+interface:
+  display_name: "上下文协作治理"
+  short_description: "建立和修复跨 Agent 的上下文接续、统一信源与成果回写机制，并按真实问题持续迭代"
+  default_prompt: "使用 $context-continuity，检查当前项目的信源、任务接续和成果回写机制，沿用已有规则，在本次授权范围内修复实际缺口并说明验证依据。"

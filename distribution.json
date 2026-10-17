@@ -1,0 +1,19 @@
+{
+  "name": "context-continuity",
+  "version": "0.1.0",
+  "display_name": "上下文协作治理",
+  "description_zh": "建立和修复跨 Agent 的上下文接续、统一信源与成果回写机制",
+  "description_en": "Establish and improve source ownership, task handoffs, and context continuity across agents.",
+  "author": "JasperLin2333",
+  "repository": "https://github.com/JasperLin2333/context-continuity",
+  "license": "MIT",
+  "files": [
+    "SKILL.md",
+    "LICENSE",
+    "agents/openai.yaml",
+    "references/adoption.md",
+    "references/handoff.md",
+    "references/diagnosis.md",
+    "references/platforms.md"
+  ]
+}

@@ -1,0 +1,46 @@
+name: 验证与发布
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: python3 -m unittest discover -s tests -v
+      - run: python3 scripts/distribute.py check
+      - run: python3 scripts/distribute.py pack --target all
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: python3 scripts/distribute.py check --tag "$VERSION_TAG"
+        env:
+          VERSION_TAG: ${{ github.ref_name }}
+      - run: python3 scripts/distribute.py pack --target all
+      - name: 创建 GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$VERSION_TAG" --verify-tag \
+            --title "上下文协作治理 $VERSION_TAG" --generate-notes \
+            --notes "提供标准 Skill、WorkBuddy、腾讯 SkillHub、Claude 插件和 OpenAI 插件包。包结构与引用已检查；客户端实际调用与各市场审核需分别验证。" \
+            dist/generic/context-continuity.zip \
+            dist/workbuddy/context-continuity-workbuddy.zip \
+            dist/skillhub/context-continuity-skillhub.zip \
+            dist/claude/context-continuity-claude.zip \
+            dist/openai/context-continuity-openai.zip \
+            dist/SHA256SUMS
