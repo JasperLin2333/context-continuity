@@ -184,6 +184,28 @@ def pack(root=ROOT, targets=TARGETS):
     return outputs
 
 
+def verify_dist(root=ROOT, targets=TARGETS, require_exists=False):
+    dist = root / "dist"
+    if not dist.exists():
+        if require_exists:
+            raise ValueError("缺少 dist 构建产物，请先运行 pack")
+        return
+    if dist.is_symlink():
+        raise ValueError("dist 不能是符号链接")
+    sums = []
+    for target in targets:
+        config, files = package_files(root, target)
+        filename = config["name"] + ("" if target == "generic" else "-" + target) + ".zip"
+        output = dist / target / filename
+        expected = archive_bytes(config["name"], files)
+        if not output.is_file() or output.is_symlink() or output.read_bytes() != expected:
+            raise ValueError("dist 产物缺失或与当前源不一致：" + filename)
+        sums.append(hashlib.sha256(expected).hexdigest() + "  " + filename)
+    checksum_file = dist / "SHA256SUMS"
+    if not checksum_file.is_file() or checksum_file.is_symlink() or checksum_file.read_bytes() != ("\n".join(sums) + "\n").encode():
+        raise ValueError("dist/SHA256SUMS 缺失或与当前源不一致")
+
+
 def install(destination, root=ROOT, link=False):
     config, files = package_files(root, "generic")
     destination = Path(os.path.abspath(destination))
@@ -227,6 +249,7 @@ def main():
                 raise ValueError("发布标签与分发版本不一致")
             for target in TARGETS:
                 package_files(target=target)
+            verify_dist(require_exists=bool(args.tag))
             print("源与 5 个通道结构检查通过；不代表宿主行为或市场审核通过。")
         elif args.command == "pack":
             for output in pack(targets=TARGETS if args.target == "all" else (args.target,)):

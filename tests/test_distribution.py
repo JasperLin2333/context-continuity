@@ -182,6 +182,21 @@ class DistributionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "SemVer"):
             distribution.pack(root)
 
+    def test_verify_dist_detects_stale_package_and_checksum(self):
+        root = self.source()
+        with self.assertRaisesRegex(ValueError, "缺少 dist 构建产物"):
+            distribution.verify_dist(root, require_exists=True)
+        distribution.pack(root)
+        distribution.verify_dist(root, require_exists=True)
+        with (root / "SKILL.md").open("a", encoding="utf-8") as file:
+            file.write("\n补充说明。\n")
+        with self.assertRaisesRegex(ValueError, "与当前源不一致"):
+            distribution.verify_dist(root)
+        distribution.pack(root)
+        (root / "dist/SHA256SUMS").write_text("0000  context-continuity.zip\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "SHA256SUMS 缺失或与当前源不一致"):
+            distribution.verify_dist(root)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: python3 -m unittest discover -s tests -v
-      - run: python3 scripts/distribute.py check
       - run: python3 scripts/distribute.py pack --target all
+      - run: python3 scripts/distribute.py check
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -26,10 +26,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: python3 scripts/distribute.py pack --target all
       - run: python3 scripts/distribute.py check --tag "$VERSION_TAG"
         env:
           VERSION_TAG: ${{ github.ref_name }}
-      - run: python3 scripts/distribute.py pack --target all
       - name: 创建 GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}

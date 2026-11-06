@@ -10,13 +10,14 @@ Skill 核心只依赖理解任务与读取材料；修改需要目标系统的�
 | --- | --- | --- |
 | Codex | `.agents/skills/context-continuity/`；可用 OpenAI 插件包分发 | [Skill 文档](https://learn.chatgpt.com/docs/build-skills)、[插件格式](https://developers.openai.com/plugins/build/plugins) |
 | Claude Code | `.claude/skills/context-continuity/`；可用 Claude 插件包分发 | [Skill 文档](https://code.claude.com/docs/en/skills)、[插件格式](https://code.claude.com/docs/en/plugins-reference) |
+| Antigravity | `.agents/skills/context-continuity/` 或全局 `~/.gemini/config/skills/context-continuity/` | 内置 `agy-customizations` 规范 |
 | Cursor | `.cursor/skills/context-continuity/` 或 `.agents/skills/context-continuity/` | [官方文档](https://cursor.com/docs/skills) |
 | GitHub Copilot | `.github/skills/context-continuity/` 或官方列出的其他位置 | [官方文档](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) |
 | WorkBuddy 开放平台 | 上传专用 ZIP，添加其必需元数据 | [官方文档](https://open.workbuddy.cn/docs/skill) |
 | 腾讯 SkillHub | 使用专用目录包中的 `slug`、`version`、`displayName` | [发布规范](https://skillhub.cn/ai/release.md) |
 | 其他宿主或市场 | 先用通用包核对当前规范，再增加必要适配 | [Agent Skills 标准](https://agentskills.io/specification) |
 
-核对日期：2026-10-17。文档支持某种格式不等于本 Skill 已在对应客户端联测或已上架；版本、账号、远程环境与组织策略都可能影响可用方式。
+核对日期：2026-11-05。文档支持某种格式不等于本 Skill 已在对应客户端联测或已上架；版本、账号、远程环境与组织策略都可能影响可用方式。
 
 ## 两种入口各司其职
 

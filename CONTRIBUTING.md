@@ -21,8 +21,8 @@ README 面向使用 Skill 的人，介绍价值、场景、实际效果与安装
 
 ```sh
 python3 -m unittest discover -s tests -v
-python3 scripts/distribute.py check
 python3 scripts/distribute.py pack --target all
+python3 scripts/distribute.py check
 ```
 
 检查与本次变化相关的行为场景，至少覆盖原问题和可能受影响的正常任务。场景推演、模型实际执行、包结构验证与平台接收是不同证据，说明取得了哪一种。不要把场景文档的存在或格式测试通过写成行为回归通过。
