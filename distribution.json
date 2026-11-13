@@ -1,6 +1,6 @@
 {
   "name": "context-continuity",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "display_name": "上下文协作治理",
   "description_zh": "建立和修复跨 Agent 的上下文接续、统一信源与成果回写机制",
   "description_en": "Establish and improve source ownership, task handoffs, and context continuity across agents.",
