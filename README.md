@@ -88,3 +88,5 @@ npx skills add JasperLin2333/context-continuity --skill context-continuity
 相关工具：[元形](https://github.com/JasperLin2333/yuanxing) 帮助人和 AI 把产品意图变成能共同讨论、体验和继续修改的设计。
 
 方法来自实际项目协作的抽象，参考了 [Orbital](https://github.com/zqiren/Orbital) 的上下文接续与回写思路。采用 [MIT](LICENSE) 许可证，欢迎使用与改进。
+
+作者：[Jasper Lin](https://github.com/JasperLin2333)（B 端与 Agent 方向 AI 产品经理）· [即刻动态](https://web.okjike.com/u/13a3f63b-4381-4ae2-bbbf-4f5c56895839) · [邮件交流](mailto:jasperlin2333@gmail.com)

@@ -55,4 +55,4 @@ Keep project-specific facts in the project. Promote repeatable practices to shar
 
 ## License
 
-[MIT License](LICENSE)
+Author: [Jasper Lin](https://github.com/JasperLin2333) (AI Product Manager · B2B Workflows & Agents) · [Contact](mailto:jasperlin2333@gmail.com) · [MIT License](LICENSE)
